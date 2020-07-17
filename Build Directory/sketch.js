@@ -1,10 +1,11 @@
 let img
 function setup() {
-  createCanvas(750, 750);
+  createCanvas(window.innerWidth, window.innerHeight);
   frameRate(10)
   img = loadImage('https://tinyurl.com/y7994l59')
 }
 
+window.addEventListener("resize", setup);
 
 function getPosition(initialPosition, initialVelocity, acceleration, timeElapsed) {
   var circleX = initialPosition["x"] + initialVelocity["vx"] * timeElapsed + 1/2 * acceleration["ax"] * timeElapsed ** 2
@@ -45,8 +46,8 @@ function timeFunction(){
   
   
   }
-  print("X Total " + totalX)
-  print("Y Total " + totalY)
+  // print("X Total " + totalX)
+  // print("Y Total " + totalY)
   if (Math.floor(timeElasped*10)/10 === 5 && notYet){
    let curMass = circleMass[0]
    circleDiameters.shift()
